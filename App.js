@@ -3,7 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './screens/login'; 
 import CadastroScreen from './screens/cadastro'; 
-import Home from './screens/Home';
+import HomeScreen from './screens/home';
+import BuscarCarona from './screens/busca';
+import OferecerCarona from './screens/oferecer';
 
 const Stack = createStackNavigator();
 
@@ -21,12 +23,22 @@ const App = () => {
           component={CadastroScreen}      
           options={{ headerShown: false }}
         />
-      </Stack.Navigator>
       <Stack.Screen 
           name="Home"
-          component={Home}
+          component={HomeScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen 
+          name="Buscar"
+          component={BuscarCarona}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="Oferecer"
+          component={OferecerCarona}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };

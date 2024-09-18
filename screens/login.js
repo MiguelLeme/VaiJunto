@@ -11,7 +11,7 @@ const LoginScreen = ({ navigation }) => {
       return;
     }
     Alert.alert("Sucesso", "Login realizado!");
-
+    navigation.navigate('Home');
   };
 
   return (
@@ -41,7 +41,7 @@ const LoginScreen = ({ navigation }) => {
             secureTextEntry
           />
           
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+          <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
           
@@ -58,7 +58,7 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#12023d', 
+    backgroundColor: '#12023d',
   },
   innerContainer: {
     flex: 1,

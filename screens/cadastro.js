@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Importe o hook useNavigation
 
 const CadastroScreen = () => {
   const [nomeCompleto, setNomeCompleto] = useState('');
@@ -11,6 +12,8 @@ const CadastroScreen = () => {
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
 
+  const navigation = useNavigation(); // Obtenha o objeto de navegação
+
   const handleCadastro = () => {
     if (senha !== confirmarSenha) {
       Alert.alert("Erro", "As senhas não coincidem!");
@@ -18,9 +21,7 @@ const CadastroScreen = () => {
     }
     // Lógica para envio dos dados
     Alert.alert("Sucesso", "Cadastro realizado!");
-
-    navigation.navigate('Home');
-
+    navigation.navigate('Home'); // Navegue para a tela Home
   };
 
   return (
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: 'transparent',
-    borderColor: 'orange', // Borda laranja
+    borderColor: 'orange',
     borderWidth: 2,
     borderRadius: 24,
     paddingVertical: 10,

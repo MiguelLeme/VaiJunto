@@ -45,6 +45,10 @@ No diretório do projeto, execute o seguinte comando para instalar todas as depe
 3. **Picker**: Instale a biblioteca de seleção interativa:
 **npm install @react-native-picker/picker**
 
+4.React Native Calendars:
+**npm install react-native-calendars**
+
+
 
 ### Rodando o Projeto
 Após instalar todas as dependências, você pode iniciar o projeto com o comando:

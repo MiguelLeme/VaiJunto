@@ -75,6 +75,7 @@ const CadastroScreen = () => {
             placeholderTextColor="#ccc"
             value={matricula}
             onChangeText={setMatricula}
+            keyboardType="numeric"
           />
           
           <TextInput
@@ -139,19 +140,21 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     paddingHorizontal: 10,
     borderRadius: 24,
+    fontWeight: 'bold',
   },
   button: {
-    backgroundColor: 'transparent',
-    borderColor: 'orange',
+    backgroundColor: '#ff4800',
     borderWidth: 2,
     borderRadius: 24,
     paddingVertical: 10,
     paddingHorizontal: 20,
     alignItems: 'center',
     marginTop: 20,
+    width: 300,
+    alignSelf: 'center', 
   },
   buttonText: {
-    color: 'yellow', // Texto amarelo
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },

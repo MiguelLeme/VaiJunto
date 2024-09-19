@@ -22,7 +22,7 @@ const LoginScreen = ({ navigation }) => {
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <SafeAreaView style={styles.innerContainer}>
-          <Text style={styles.title}>VaiJunto - Login</Text>
+          <Text style={styles.title}>VaiJunto</Text>
           
           <TextInput
             style={styles.input}
@@ -81,34 +81,37 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     paddingHorizontal: 10,
     borderRadius: 24,
+    fontWeight: 'bold',
   },
   button: {
-    backgroundColor: 'transparent',
-    borderColor: 'orange',
+    backgroundColor: '#ff4800',
     borderWidth: 2,
     borderRadius: 24,
     paddingVertical: 10,
     paddingHorizontal: 20,
     alignItems: 'center',
     marginTop: 20,
+    width: 300,
+    alignSelf: 'center', 
   },
   buttonText: {
-    color: 'yellow',
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },
   registerButton: {
-    backgroundColor: 'transparent',
-    borderColor: 'yellow',
+    backgroundColor: '#0167ff',
     borderWidth: 2,
     borderRadius: 24,
     paddingVertical: 10,
     paddingHorizontal: 20,
     alignItems: 'center',
     marginTop: 20,
+    width: 300,
+    alignSelf: 'center', 
   },
   registerButtonText: {
-    color: 'orange',
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },

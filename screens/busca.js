@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView, Modal, FlatList } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import moment from 'moment'; // Importa a biblioteca moment.js para formatação de data
+import RNPickerSelect from 'react-native-picker-select'; // Importa a biblioteca RNPickerSelect
 
 const BuscarCarona = () => {
   const [localizacaoAtual, setLocalizacaoAtual] = useState('');
@@ -11,8 +12,27 @@ const BuscarCarona = () => {
   const [vagasDisponiveis, setVagasDisponiveis] = useState('');
   const [isModalVisible, setModalVisible] = useState(false);
   const [isCalendarVisible, setCalendarVisible] = useState(false);
+  const [isPickerVisible, setPickerVisible] = useState(false);
 
   const options = ['1 pessoa', '2 pessoas', '3 pessoas', '4 pessoas'];
+
+  const horarioOptions = [
+    { label: '08:00', value: '08:00' },
+    { label: '09:00', value: '09:00' },
+    { label: '10:00', value: '10:00' },
+    { label: '11:00', value: '11:00' },
+    { label: '12:00', value: '12:00' },
+    { label: '13:00', value: '13:00' },
+    { label: '14:00', value: '14:00' },
+    { label: '15:00', value: '15:00' },
+    { label: '16:00', value: '16:00' },
+    { label: '17:00', value: '17:00' },
+    { label: '18:00', value: '18:00' },
+    { label: '19:00', value: '19:00' },
+    { label: '20:00', value: '20:00' },
+    { label: '21:00', value: '21:00' },
+    { label: '22:00', value: '22:00' },
+  ];
 
   const handleBuscar = () => {
     // Lógica para buscar carona
@@ -20,11 +40,15 @@ const BuscarCarona = () => {
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
-  };
+  }; //Para seleção de vagas
 
   const toggleCalendar = () => {
     setCalendarVisible(!isCalendarVisible);
-  };
+  }; //Para o calendário
+
+  const togglePicker = () => {
+    setPickerVisible(!isPickerVisible);
+  }; //Para seleção de horário
 
   const handleOptionSelect = (option) => {
     setVagasDisponiveis(option);
@@ -35,6 +59,11 @@ const BuscarCarona = () => {
     const formattedDate = moment(day.dateString).format('DD/MM/YYYY');
     setData(formattedDate);
     toggleCalendar();
+  };
+
+  const handleHorarioSelect = (value) => {
+    setHorario(value);
+    togglePicker();
   };
 
   const today = moment().format('YYYY-MM-DD'); // Formato 'YYYY-MM-DD'
@@ -49,7 +78,7 @@ const BuscarCarona = () => {
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <SafeAreaView style={styles.innerContainer}>
-          <Text style={styles.title}>Oferecer carona</Text>
+          <Text style={styles.title}>Buscar carona</Text>
 
           <TextInput
             style={styles.input}
@@ -71,13 +100,36 @@ const BuscarCarona = () => {
             <Text style={styles.placeholderText}>{data || 'Data'}</Text>
           </TouchableOpacity>
           
-          <TextInput
-            style={styles.input}
-            placeholder="Horário"
-            placeholderTextColor="#ccc"
-            value={horario}
-            onChangeText={setHorario}
-          />
+          <TouchableOpacity style={styles.input}>
+            <RNPickerSelect
+              onValueChange={handleHorarioSelect}
+              items={horarioOptions}
+              placeholder={{ 
+                label: 'Horário', 
+                value: null,
+                color: '#fff',
+                fontWeight: 'bold',
+               }}
+              value={horario}
+              style={{
+                inputAndroid: {
+                  color: horario ? '#fff' : '#999',
+                  fontSize: 18,
+                  fontWeight: 'bold',
+                },
+                inputIOS: {
+                  color: horario ? '#fff' : '#999',
+                  fontSize: 18,
+                  fontWeight: 'bold',
+                },
+                placeholder: {
+                  color: '#fff',
+                  fontWeight: 'bold',
+                  fontSize: 18,
+                },
+              }}
+            />
+          </TouchableOpacity>
           
           <TouchableOpacity style={styles.pickerContainer} onPress={toggleModal}>
             <Text style={styles.pickerLabel}>{vagasDisponiveis || 'Vagas disponíveis'}</Text>

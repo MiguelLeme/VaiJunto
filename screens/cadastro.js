@@ -32,7 +32,7 @@ const CadastroScreen = () => {
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <SafeAreaView style={styles.innerContainer}>
-          <Text style={styles.title}>VaiJunto</Text>
+          <Text style={styles.title}>VaiJunto?</Text>
           
           <TextInput
             style={styles.input}

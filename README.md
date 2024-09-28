@@ -26,33 +26,33 @@ Para instalar o **Node.js**, siga o tutorial disponível no site oficial [Node.j
 
 ### Instalação do Expo CLI
 Após instalar o Node.js, instale o **Expo CLI** executando o seguinte comando no terminal:
-**npm install -g expo-cli**
+- **npm install -g expo-cli**
 
 
 ### Dependências do Projeto
 No diretório do projeto, execute o seguinte comando para instalar todas as dependências necessárias, como React Navigation e o Picker:
-**npm install**
+- **npm install**
 
 
 ### Instalação das Dependências Individuais
 
 1. **React Navigation**: Para instalar o sistema de navegação do React Native, use o seguinte comando:
-**npm install @react-navigation/native**
+- **npm install @react-navigation/native**
 
 2. **React Native Screens e React Native Safe Area Context**:
-**npm install react-native-screens react-native-safe-area-context**
+- **npm install react-native-screens react-native-safe-area-context**
 
 3. **Picker**: Instale a biblioteca de seleção interativa:
-**npm install @react-native-picker/picker**
+- **npm install @react-native-picker/picker**
 
 4. **React Native Calendars**:
-**npm install react-native-calendars**
+- **npm install react-native-calendars**
 
 5. **Back-end requirements**:
 No diretório 'django_backend', siga os passos:
 - Crie um ambiente virtual com **python -m venv venv**.
 
-- Ative o ambiente virtual com **venv\Scripts\activate** (Windows) ou **source venv/bin/activate** *MacOS/Linux)
+- Ative o ambiente virtual com **venv\Scripts\activate** (Windows) ou **source venv/bin/activate** (MacOS/Linux)
 
 - Com o ambiente virtual ativado, rode **pip install requirements.txt**
 
@@ -60,7 +60,7 @@ No diretório 'django_backend', siga os passos:
 
 ### Rodando o Projeto
 Após instalar todas as dependências, você pode iniciar o projeto com o comando:
-**expo start**
+- **expo start**
 
 
 Isso abrirá o **Expo Dev Tools** no seu navegador. Com ele, você poderá executar o aplicativo no emulador, no seu dispositivo móvel ou no simulador de iOS/Android.

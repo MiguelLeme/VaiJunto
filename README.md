@@ -50,11 +50,11 @@ No diretório do projeto, execute o seguinte comando para instalar todas as depe
 
 5. **Back-end requirements**:
 No diretório 'django_backend', siga os passos:
-Crie um ambiente virtual com **python -m venv venv**.
+- Crie um ambiente virtual com **python -m venv venv**.
 
-Ative o ambiente virtual com **venv\Scripts\activate** (Windows) ou **source venv/bin/activate** *MacOS/Linux)
+- Ative o ambiente virtual com **venv\Scripts\activate** (Windows) ou **source venv/bin/activate** *MacOS/Linux)
 
-Com o ambiente virtual ativado, rode **pip install requirements.txt**
+- Com o ambiente virtual ativado, rode **pip install requirements.txt**
 
 
 

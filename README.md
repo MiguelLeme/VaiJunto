@@ -39,16 +39,16 @@ No diretório do projeto, execute o seguinte comando para instalar todas as depe
 1. **React Navigation**: Para instalar o sistema de navegação do React Native, use o seguinte comando:
 **npm install @react-navigation/native**
 
-2. React Native Screens e React Native Safe Area Context:
+2. **React Native Screens e React Native Safe Area Context**:
 **npm install react-native-screens react-native-safe-area-context**
 
 3. **Picker**: Instale a biblioteca de seleção interativa:
 **npm install @react-native-picker/picker**
 
-4.React Native Calendars:
+4. **React Native Calendars**:
 **npm install react-native-calendars**
 
-5.Back-end requirements:
+5. **Back-end requirements**:
 No diretório 'django_backend', siga os passos:
 Crie um ambiente virtual com **python -m venv venv**.
 

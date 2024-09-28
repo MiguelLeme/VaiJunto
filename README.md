@@ -1,7 +1,7 @@
-# BlaBlaluno
+# VaiJunto
 
 ## Descrição do Projeto
-O **BlaBlaluno** é um aplicativo mobile desenvolvido para facilitar a conexão entre estudantes universitários que desejam compartilhar caronas. A ideia central do projeto é permitir que os usuários ofereçam ou encontrem caronas de maneira prática e segura, economizando tempo e recursos. Com o app, os estudantes podem buscar caronas disponíveis, oferecer vagas em seus veículos e se conectar com outros colegas que seguem rotas semelhantes.
+O **VaiJunto** é um aplicativo mobile desenvolvido para facilitar a conexão entre estudantes universitários que desejam compartilhar caronas. A ideia central do projeto é permitir que os usuários ofereçam ou encontrem caronas de maneira prática e segura, economizando tempo e recursos. Com o app, os estudantes podem buscar caronas disponíveis, oferecer vagas em seus veículos e se conectar com outros colegas que seguem rotas semelhantes.
 
 ## Funcionalidades
 - **Buscar Carona**: O usuário pode pesquisar caronas disponíveis para uma determinada localização e horário.
@@ -47,6 +47,14 @@ No diretório do projeto, execute o seguinte comando para instalar todas as depe
 
 4.React Native Calendars:
 **npm install react-native-calendars**
+
+5.Back-end requirements:
+No diretório 'django_backend', siga os passos:
+Crie um ambiente virtual com **python -m venv venv**.
+
+Ative o ambiente virtual com **venv\Scripts\activate** (Windows) ou **source venv/bin/activate** *MacOS/Linux)
+
+Com o ambiente virtual ativado, rode **pip install requirements.txt**
 
 
 

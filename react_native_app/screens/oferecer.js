@@ -3,8 +3,10 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, Keyb
 import { Calendar } from 'react-native-calendars';
 import moment from 'moment'; // Importa a biblioteca moment.js para formatação de data
 import RNPickerSelect from 'react-native-picker-select'; // Importa a biblioteca RNPickerSelect
+import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
 
 const OferecerCarona = () => {
+  const navigation = useNavigation(); // Inicializa o hook de navegação
   const [localizacaoAtual, setLocalizacaoAtual] = useState('');
   const [destino, setDestino] = useState('');
   const [data, setData] = useState('');
@@ -114,16 +116,19 @@ const OferecerCarona = () => {
                   color: horario ? '#fff' : '#999',
                   fontSize: 18,
                   fontWeight: 'bold',
+                  textAlign: 'center',
                 },
                 inputIOS: {
                   color: horario ? '#fff' : '#999',
                   fontSize: 18,
                   fontWeight: 'bold',
+                  textAlign: 'center'
                 },
                 placeholder: {
                   color: '#fff',
                   fontWeight: 'bold', 
                   fontSize: 18,
+                  textAlign: 'center'
                 },
               }}
             />
@@ -132,6 +137,15 @@ const OferecerCarona = () => {
           <TouchableOpacity style={styles.pickerContainer} onPress={toggleModal}>
             <Text style={styles.pickerLabel}>{vagasDisponiveis || 'Vagas disponíveis'}</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.addCarButton} // Aplique o estilo aqui
+            onPress={() => navigation.navigate('Carro')}
+
+          >
+            <Text style={styles.addCarText}>Adicionar carro</Text>
+          </TouchableOpacity>
+
 
           <Modal
             visible={isModalVisible}
@@ -217,21 +231,25 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   input: {
-    color: '#fff',
+    fontSize: 18,
+    color: "#fff",
     margin: 10,
     height: 50,
     borderColor: '#4f0466',
     borderWidth: 4,
     marginBottom: 12,
-    paddingHorizontal: 10,
+    marginVertical: 10,
+    paddingHorizontal: 5,
     borderRadius: 24,
     fontWeight: 'bold',
     justifyContent: 'center',
+    textAlign: 'center',
   },
   placeholderText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   pickerContainer: {
     margin: 10,
@@ -247,12 +265,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalBackground: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
   },
   modalContent: {
     backgroundColor: '#12023d',
@@ -286,6 +306,22 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  addCarButton: {
+    marginVertical: 10,
+    paddingVertical: 15, 
+    borderColor: '#4f0466',
+    borderWidth: 4,
+    borderRadius: 24,
+    justifyContent: 'center',
+    alignItems: 'center', 
+    backgroundColor: '#12023d', 
+  },
+  addCarText: {
+    fontSize: 18,
+    color: '#fff',
+    fontWeight: 'bold',
+    textAlign: 'center', 
   },
   
 });

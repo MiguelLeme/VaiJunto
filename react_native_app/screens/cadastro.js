@@ -132,6 +132,8 @@ const styles = StyleSheet.create({
     color: '#fff', // Cor branca para o texto
   },
   input: {
+    fontSize: 18,
+    textAlign: 'center',
     color: '#fff',
     margin: 10,
     height: 50,

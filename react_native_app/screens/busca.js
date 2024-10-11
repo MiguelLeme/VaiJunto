@@ -116,23 +116,26 @@ const BuscarCarona = () => {
                   color: horario ? '#fff' : '#999',
                   fontSize: 18,
                   fontWeight: 'bold',
+                  textAlign: 'center',
                 },
                 inputIOS: {
                   color: horario ? '#fff' : '#999',
                   fontSize: 18,
                   fontWeight: 'bold',
+                  textAlign: 'center',
                 },
                 placeholder: {
                   color: '#fff',
                   fontWeight: 'bold',
                   fontSize: 18,
+                  textAlign: 'center',
                 },
               }}
             />
           </TouchableOpacity>
           
           <TouchableOpacity style={styles.pickerContainer} onPress={toggleModal}>
-            <Text style={styles.pickerLabel}>{vagasDisponiveis || 'Vagas disponíveis'}</Text>
+            <Text style={styles.pickerLabel}>{vagasDisponiveis || 'Número de pessoas'}</Text>
           </TouchableOpacity>
 
           <Modal
@@ -219,6 +222,8 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   input: {
+    fontSize: 18,
+    textAlign: 'center',
     color: '#fff',
     margin: 10,
     height: 50,
@@ -234,6 +239,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   pickerContainer: {
     margin: 10,
@@ -249,12 +255,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalBackground: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
   },
   modalContent: {
     backgroundColor: '#12023d',

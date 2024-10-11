@@ -6,6 +6,7 @@ import CadastroScreen from './screens/cadastro';
 import HomeScreen from './screens/home';
 import BuscarCarona from './screens/busca';
 import OferecerCarona from './screens/oferecer';
+import CadastroCarro from './screens/carro';
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,11 @@ const App = () => {
           component={OferecerCarona}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="Carro"
+          component={CadastroCarro}
+          options={{ headerShown: false}}
+          />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -30,6 +30,7 @@ const LoginScreen = ({ navigation }) => {
             placeholderTextColor="#ccc"
             value={matricula}
             onChangeText={setMatricula}
+            keyboardType="phone-pad"
           />
           
           <TextInput
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   input: {
+    fontSize: 18,
     color: '#fff',
     margin: 10,
     height: 50,
@@ -82,6 +84,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 24,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   button: {
     backgroundColor: '#ff4800',

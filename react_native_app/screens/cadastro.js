@@ -19,9 +19,40 @@ const CadastroScreen = () => {
       Alert.alert("Erro", "As senhas não coincidem!");
       return;
     }
-    // Lógica para envio dos dados
-    Alert.alert("Sucesso", "Cadastro realizado!");
-    navigation.navigate('Home'); // Navegue para a tela Home
+
+    //Dados a serem enviados para o back-end
+    const dadosCadastro = {
+      nome_completo: nomeCompleto,
+      cpf: cpf,
+      email: email,
+      telefone: telefone,
+      matricula: matricula,
+      curso: curso,
+      senha: senha,
+    };
+
+    //Realizando a requisição POST para o back-end
+    fetch('http://177.194.104.201:800/api/cadastrar_usuario', {
+      method: 'POST',
+      headers: {
+        'Acept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dadosCadastro)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.sucess) {
+        Alert.açert("Sucesso", "Cadastro realizado com sucesso!");
+        navigation.navigate('Login'); //Navega para a tela de login
+      } else {
+        Alert.alert("Erro", data.message || "Erro ao realizar o cadastro");
+      }
+    })
+    .catch(error => {
+      console.error("Erro ao realizar o cadastro:",error);
+      Alert.alert("Erro","Ocorreu um erro ao tentar realizar o cadastro.");
+    })
   };
 
   return (

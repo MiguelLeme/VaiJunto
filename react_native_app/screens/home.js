@@ -18,8 +18,7 @@ const HomeScreen = () => {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Oferecer')}
-      >
+        onPress={() => navigation.navigate('Oferecer')}>
         <Text style={styles.buttonText}>Oferecer carona</Text>
       </TouchableOpacity>
     </View>

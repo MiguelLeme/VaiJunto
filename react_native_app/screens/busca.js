@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView, Modal, FlatList } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import moment from 'moment'; // Importa a biblioteca moment.js para formatação de data
 import RNPickerSelect from 'react-native-picker-select'; // Importa a biblioteca RNPickerSelect
 
 const BuscarCarona = () => {
+  const navigation = useNavigation();
+
   const [localizacaoAtual, setLocalizacaoAtual] = useState('');
   const [destino, setDestino] = useState('');
   const [data, setData] = useState('');
@@ -109,7 +112,7 @@ const BuscarCarona = () => {
                 value: null,
                 color: '#fff',
                 fontWeight: 'bold',
-               }}
+                }}
               value={horario}
               style={{
                 inputAndroid: {
@@ -194,7 +197,9 @@ const BuscarCarona = () => {
             </View>
           </Modal>
 
-          <TouchableOpacity style={styles.button} onPress={handleBuscar}>
+          <TouchableOpacity 
+            style={styles.button} 
+            onPress={() => navigation.navigate('Match')}>
             <Text style={styles.buttonText}>Confirmar</Text>
           </TouchableOpacity>
 

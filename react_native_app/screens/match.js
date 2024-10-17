@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList } from 'react
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const BuscarCarona = () => {
+const MatchScreen = () => {
     const navigation = useNavigation();
 
     // Dados fictícios para exibir na tela
@@ -11,7 +11,7 @@ const BuscarCarona = () => {
         {
             id: '1',
             nome: 'João Silva',
-            foto: 'https://via.placeholder.com/50',
+            foto: 'https://thispersondoesnotexist.com',
             data: '22/10/2024',
             horarioSaida: '08:00',
             vagas: 3,
@@ -21,7 +21,7 @@ const BuscarCarona = () => {
         {
             id: '2',
             nome: 'Maria Oliveira',
-            foto: 'https://via.placeholder.com/50',
+            foto: 'https://thispersondoesnotexist.com',
             data: '23/10/2024',
             horarioSaida: '09:00',
             vagas: 2,
@@ -32,11 +32,11 @@ const BuscarCarona = () => {
     ];
 
     const handlePress = (carona) => {
-        navigation.navigate('DetalhesCarona', { carona });
+        navigation.navigate('Confirmar', { carona });
     };
 
     const renderCarona = ({ item }) => (
-        <TouchableOpacity style={styles.container} onPress={() => handlePress(item)}>
+        <TouchableOpacity style={styles.container} onPress={() => handlePress('item')}>
             <View style={styles.circle}>
                 <Image source={{ uri: item.foto }} style={styles.userImage} />
             </View>
@@ -184,4 +184,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default BuscarCarona;
+export default MatchScreen;

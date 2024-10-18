@@ -32,7 +32,7 @@ const CadastroScreen = () => {
     };
 
     //Realizando a requisição POST para o back-end
-    fetch('http://177.194.104.201:800/api/cadastrar_usuario', {
+    fetch('http://192.168.0.88:8000/api/cadastrar_usuario', {
       method: 'POST',
       headers: {
         'Acept': 'application/json',
@@ -66,11 +66,11 @@ const CadastroScreen = () => {
           <Text style={styles.title}>VaiJunto?</Text>
           
           <TextInput
+            value={nomeCompleto}
+            onChangeText={setNomeCompleto}
             style={styles.input}
             placeholder="Nome completo"
             placeholderTextColor="#ccc"
-            value={nomeCompleto}
-            onChangeText={setNomeCompleto}
           />
           
           <TextInput

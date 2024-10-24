@@ -1,15 +1,18 @@
 {
   "expo": {
-    "name": "blablaluno",
-    "slug": "blablaluno",
+    "name": "VaiJunto?",
+    "slug": "VaiJunto?",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "developmentClient": true,
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
+      
+      
     },
     "ios": {
       "supportsTablet": true

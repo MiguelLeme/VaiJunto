@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Importe o hook useNavigation
+import { useNavigation } from '@react-navigation/native'; 
+
 
 const CadastroScreen = () => {
   const [nomeCompleto, setNomeCompleto] = useState('');
@@ -13,6 +14,22 @@ const CadastroScreen = () => {
   const [confirmarSenha, setConfirmarSenha] = useState('');
 
   const navigation = useNavigation(); // Obtenha o objeto de navegação
+
+
+    //Função para buscar o IP do servidor
+  const [serverIp, setServerIp] = useState('');
+    useEffect(() => {
+      const getPublicIp = async () => {
+        try {
+          const response = await fetch('https://api.ipify.org?format=json');
+          const data = await response.json();
+          setServerIp(data.ip);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      getPublicIp();
+    }, []);
 
   const handleCadastro = () => {
     if (senha !== confirmarSenha) {

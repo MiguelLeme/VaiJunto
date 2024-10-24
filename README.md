@@ -62,6 +62,9 @@ No diretório 'django_backend', siga os passos:
 Após instalar todas as dependências, você pode iniciar o projeto com o comando:
 - **expo start**
 
+### Verificando o Banco de dados
+Execute o comando **python manage.py runserver "IP LOCAL":800**
+Substitua IP LOCAL pelo seu endereço IP (pode ser consultado executando "ipconfig" no terminal)
 
 Isso abrirá o **Expo Dev Tools** no seu navegador. Com ele, você poderá executar o aplicativo no emulador, no seu dispositivo móvel ou no simulador de iOS/Android.
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppRegistry } from 'react-native'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from './screens/splash';
@@ -10,6 +11,7 @@ import OferecerCarona from './screens/oferecer';
 import CadastroCarro from './screens/carro';
 import MatchScreen from './screens/match';
 import ConfirmarCarona from './screens/confirmar';
+import { name as VaiJunto } from './app.json'; 
 
 const Stack = createStackNavigator();
 
@@ -66,5 +68,6 @@ const App = () => {
     </NavigationContainer>
   );
 };
+AppRegistry.registerComponent(VaiJunto, () => App);
 
 export default App;

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
 
-
 const CadastroScreen = () => {
   const [nomeCompleto, setNomeCompleto] = useState('');
   const [cpf, setCpf] = useState('');
@@ -12,34 +11,63 @@ const CadastroScreen = () => {
   const [curso, setCurso] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [serverIp, setServerIp] = useState(''); // Para armazenar o IP do servidor
 
   const navigation = useNavigation(); // Obtenha o objeto de navegação
 
-
-    //Função para buscar o IP do servidor
-  const [serverIp, setServerIp] = useState('');
-    useEffect(() => {
-      const getPublicIp = async () => {
-        try {
-          const response = await fetch('https://api.ipify.org?format=json');
-          const data = await response.json();
-          setServerIp(data.ip);
-        } catch (error) {
-          console.error(error);
-        }
-      };
-      getPublicIp();
-    }, []);
-
-  const handleCadastro = () => {
+  // Função para cadastrar um usuário
+  const handleCadastroUsuario = async () => {
     if (senha !== confirmarSenha) {
       Alert.alert("Erro", "As senhas não coincidem!");
       return;
     }
-    // Lógica para envio dos dados
-    Alert.alert("Sucesso", "Cadastro realizado!");
-    navigation.navigate('Home'); // Navegue para a tela Home
+
+    const dadosCadastro = {
+      nome: nomeCompleto,
+      cpf: cpf,
+      email: email,
+      telefone: telefone,
+      matricula: matricula,
+      curso: curso,
+      senha: senha,
+    };
+
+    try {
+      const response = await fetch(`http://172.16.15.23/api/cadastrar_usuario/`, {  // Ajuste na URL da requisição
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dadosCadastro),
+      });
+
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        Alert.alert("Sucesso", "Usuário cadastrado com sucesso!");
+        navigation.navigate('Home'); // Navegue para a tela Home
+      } else {
+        console.error('Erro ao cadastrar usuário:', response.status);
+        Alert.alert("Erro", "Não foi possível cadastrar o usuário.");
+      }
+    } catch (error) {
+      console.error('Erro de conexão:', error);
+      Alert.alert("Erro", "Falha na conexão com o servidor.");
+    }
   };
+
+  // Buscar o IP do servidor
+  useEffect(() => {
+    const getPublicIp = async () => {
+      try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        setServerIp(data.ip);  // Armazena o IP público da máquina
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getPublicIp();
+  }, []);
 
   return (
     <KeyboardAvoidingView
@@ -50,7 +78,7 @@ const CadastroScreen = () => {
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <SafeAreaView style={styles.innerContainer}>
           <Text style={styles.title}>VaiJunto?</Text>
-          
+
           <TextInput
             style={styles.input}
             placeholder="Nome completo"
@@ -58,7 +86,7 @@ const CadastroScreen = () => {
             value={nomeCompleto}
             onChangeText={setNomeCompleto}
           />
-          
+
           <TextInput
             style={styles.input}
             placeholder="CPF"
@@ -67,7 +95,7 @@ const CadastroScreen = () => {
             onChangeText={setCpf}
             keyboardType="numeric"
           />
-          
+
           <TextInput
             style={styles.input}
             placeholder="Email"
@@ -76,7 +104,7 @@ const CadastroScreen = () => {
             onChangeText={setEmail}
             keyboardType="email-address"
           />
-          
+
           <TextInput
             style={styles.input}
             placeholder="Telefone"     
@@ -85,7 +113,7 @@ const CadastroScreen = () => {
             onChangeText={setTelefone}
             keyboardType="phone-pad"
           />
-          
+
           <TextInput
             style={styles.input}
             placeholder="Matrícula (RA)"
@@ -94,7 +122,7 @@ const CadastroScreen = () => {
             onChangeText={setMatricula}
             keyboardType="numeric"
           />
-          
+
           <TextInput
             style={styles.input}
             placeholder="Curso"
@@ -102,7 +130,7 @@ const CadastroScreen = () => {
             value={curso}
             onChangeText={setCurso}
           />
-          
+
           <TextInput
             style={styles.input}
             placeholder="Senha"
@@ -111,7 +139,7 @@ const CadastroScreen = () => {
             onChangeText={setSenha}
             secureTextEntry
           />
-          
+
           <TextInput
             style={styles.input}
             placeholder="Confirmar Senha"
@@ -120,8 +148,8 @@ const CadastroScreen = () => {
             onChangeText={setConfirmarSenha}
             secureTextEntry
           />
-          
-          <TouchableOpacity style={styles.button} onPress={handleCadastro}>
+
+          <TouchableOpacity style={styles.button} onPress={handleCadastroUsuario}>
             <Text style={styles.buttonText}>Cadastrar</Text>
           </TouchableOpacity>
           

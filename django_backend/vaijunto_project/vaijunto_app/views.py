@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Carona, Viagem, Cadastrar_usuario
-from .serializers import CaronaSerializer, ViagemSerializer
+from .serializers import CaronaSerializer, ViagemSerializer,Cadastrar_usuario
 
 class CaronaViewSet(viewsets.ModelViewSet):
     queryset = Carona.objects.all()

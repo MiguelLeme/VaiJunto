@@ -54,7 +54,7 @@ No diretório 'django_backend', siga os passos:
 
 - Ative o ambiente virtual com **venv\Scripts\activate** (Windows) ou **source venv/bin/activate** (MacOS/Linux)
 
-- Com o ambiente virtual ativado, rode **pip install requirements.txt**
+- Com o ambiente virtual ativado, rode **pip install -r requirements.txt**
 
 
 
